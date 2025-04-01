@@ -1,5 +1,19 @@
+import fs from "fs";
+
 const remove = async () => {
-    // Write your code here 
+  const path = `${process.cwd()}/src/fs/files/fileToRemove.txt`;
+
+  if (!fs.existsSync(path)) {
+    console.error("FS operation failed");
+  } else {
+    fs.unlink(path, (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log("deleted");
+      }
+    });
+  }
 };
 
 await remove();
