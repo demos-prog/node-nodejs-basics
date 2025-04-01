@@ -1,5 +1,20 @@
+import fs from "fs";
+
 const create = async () => {
-    // Write your code here 
+  const content = "I am fresh and young";
+  const path = `${process.cwd()}/src/fs/files/fresh.txt`;
+
+  if (fs.existsSync(path)) {
+    console.error("FS operation failed");
+  } else {
+    fs.writeFile(path, content, (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log("written");
+      }
+    });
+  }
 };
 
 await create();
