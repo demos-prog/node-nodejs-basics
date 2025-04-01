@@ -5,17 +5,17 @@ const copy = async () => {
   const targetPath = `${process.cwd()}/src/fs/files_copy`;
 
   if (fs.existsSync(targetPath) || !fs.existsSync(path)) {
-    console.error("FS operation failed");
-  } else {
-    fs.cp(path, targetPath, { recursive: true }, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-
-      console.log("copyed");
-    });
+    throw new Error("FS operation failed");
   }
+
+  fs.cp(path, targetPath, { recursive: true }, (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    console.log("copyed");
+  });
 };
 
 await copy();

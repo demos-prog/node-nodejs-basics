@@ -5,17 +5,17 @@ const list = async () => {
 
   if (!fs.existsSync(path)) {
     throw new Error("FS operation failed");
-  } else {
-    fs.readdir(path, (err, files) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      files.forEach((file) => {
-        console.log(file);
-      });
-    });
   }
+
+  fs.readdir(path, (err, files) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    files.forEach((file) => {
+      console.log(file);
+    });
+  });
 };
 
 await list();

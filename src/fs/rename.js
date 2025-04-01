@@ -5,16 +5,16 @@ const rename = async () => {
   const targetPath = `${process.cwd()}/src/fs/files/properFilename.md`;
 
   if (!fs.existsSync(path) || fs.existsSync(targetPath)) {
-    console.error("FS operation failed");
-  } else {
-    fs.rename(path, targetPath, (err) => {
-      if (err) {
-        console.error(err);
-      }
-
-      console.log("renamed");
-    });
+    throw new Error("FS operation failed");
   }
+
+  fs.rename(path, targetPath, (err) => {
+    if (err) {
+      console.error(err);
+    }
+
+    console.log("renamed");
+  });
 };
 
 await rename();

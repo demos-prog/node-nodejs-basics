@@ -5,17 +5,17 @@ const create = async () => {
   const path = `${process.cwd()}/src/fs/files/fresh.txt`;
 
   if (fs.existsSync(path)) {
-    console.error("FS operation failed");
-  } else {
-    fs.writeFile(path, content, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-
-      console.log("written");
-    });
+    throw new Error("FS operation failed");
   }
+  
+  fs.writeFile(path, content, (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    console.log("written");
+  });
 };
 
 await create();
