@@ -10,9 +10,10 @@ const create = async () => {
     fs.writeFile(path, content, (err) => {
       if (err) {
         console.error(err);
-      } else {
-        console.log("written");
+        return;
       }
+
+      console.log("written");
     });
   }
 };

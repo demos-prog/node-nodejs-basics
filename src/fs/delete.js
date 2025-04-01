@@ -9,9 +9,10 @@ const remove = async () => {
     fs.unlink(path, (err) => {
       if (err) {
         console.error(err);
-      } else {
-        console.log("deleted");
+        return;
       }
+
+      console.log("deleted");
     });
   }
 };

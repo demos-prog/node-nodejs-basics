@@ -10,9 +10,9 @@ const rename = async () => {
     fs.rename(path, targetPath, (err) => {
       if (err) {
         console.error(err);
-      } else {
-        console.log("renamed");
       }
+
+      console.log("renamed");
     });
   }
 };

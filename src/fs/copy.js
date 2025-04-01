@@ -10,9 +10,10 @@ const copy = async () => {
     fs.cp(path, targetPath, { recursive: true }, (err) => {
       if (err) {
         console.error(err);
-      } else {
-        console.log("copyed");
+        return;
       }
+
+      console.log("copyed");
     });
   }
 };
